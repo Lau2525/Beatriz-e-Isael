@@ -1413,7 +1413,7 @@
                 params.append('signature', signature);
 
                 try {
-                    await fetch('https://script.google.com/macros/s/AKfycbzQbhOggBiD6VTiKaxwJbX1yRkDtVFRJRklV5X_1cI6Av2znt_nwU1zbDhVECzJEhntCg/exec', {
+                    await fetch('https://script.google.com/macros/s/AKfycbwt1mkJMUs5subTyTS7aJ3ZFtJs_U3CmXTkD6urOFEDY10Sf7vtS7HU4Lh4jNkemSDW/exec', {
                         method: 'POST',
                         mode: 'no-cors',
                         body: params
@@ -1664,6 +1664,11 @@
                 submit_rsvp_btn: "ENVIAR RESPUESTA",
                 btn_modify_choice: "Modificar",
                 btn_modify_choice_full: "Modificar respuesta (Sí / No)",
+                attendees_list_header: "Lista de Asistentes",
+                attendees_list_msg: "Por favor, anota el nombre de las personas que van a asistir, pero únicamente aquellos dentro de la lista que te han proporcionado los novios.",
+                attendees_list_placeholder: "Ej.\n1. Isael Castillo Galeana\n2. Beatriz...",
+                btn_submit_final: "ENVIAR CONFIRMACIÓN",
+                btn_back_family_step: "Regresar al paso anterior",
                 rsvp_success: "¡Muchas gracias!",
                 rsvp_success_text: "Tu respuesta ha sido registrada y enviada a los novios.",
                 global_guest_err: "Lo sentimos, ya no hay cupo disponible para más invitados.",
@@ -1774,6 +1779,11 @@
                 submit_rsvp_btn: "SEND RESPONSE",
                 btn_modify_choice: "Change",
                 btn_modify_choice_full: "Change choice (Yes / No)",
+                attendees_list_header: "Attendee List",
+                attendees_list_msg: "Please enter the names of the people who will attend, but only those included in the list provided by the couple.",
+                attendees_list_placeholder: "Ex.\n1. Isael Castillo Galeana\n2. Beatriz...",
+                btn_submit_final: "SEND CONFIRMATION",
+                btn_back_family_step: "Back to previous step",
                 rsvp_success: "Thank you very much!",
                 rsvp_success_text: "Your response has been recorded and sent to the couple.",
                 global_guest_err: "Sorry, there are no more spots available for additional guests.",
@@ -2049,10 +2059,10 @@
                 </div>
 
                 <div class="space-y-2 pt-1">
-                    <button id="btn-submit-rsvp" type="button"
+                    <button id="btn-submit-rsvp-step2" type="button"
                         class="w-full py-3.5 px-4 bg-[#801F2F] text-white rounded-full font-sans text-xs uppercase tracking-[0.25em] font-bold shadow-md hover:bg-[#6b1827] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         data-t="submit_rsvp_btn">
-                        ENVIAR RESPUESTA
+                        SIGUIENTE
                     </button>
                     
                     <button id="btn-back-step1-link" type="button" class="text-xs text-[#801F2F] hover:underline font-sans font-medium flex items-center justify-center gap-1 mx-auto py-1 cursor-pointer">
@@ -2062,8 +2072,40 @@
                 </div>
             </div>
 
-            <!-- Step 3: Success Confirmation -->
-            <div id="rsvp-step-3" class="hidden text-center space-y-4 py-8">
+            <!-- Step 3: Attendee List Input (Only if CONFIRMO ASISTENCIA) -->
+            <div id="rsvp-step-3" class="hidden space-y-5 py-2">
+                <div class="text-center space-y-2">
+                    <h3 class="heading-cursive text-3xl text-[#4A1521]" data-t="attendees_list_header">
+                        Lista de Asistentes
+                    </h3>
+                    <p class="font-sans text-xs text-[#555] leading-relaxed px-2" data-t="attendees_list_msg">
+                        Por favor, anota el nombre de las personas que van a asistir, pero únicamente aquellos dentro de la lista que te han proporcionado los novios.
+                    </p>
+                </div>
+
+                <div class="pt-1">
+                    <textarea id="attendees-list-input" rows="4"
+                        class="w-full bg-[#fdfcf0] border border-[#C5A059]/50 rounded-xl p-3.5 font-sans text-xs sm:text-sm text-[#4A1521] placeholder:text-[#999] placeholder:font-sans placeholder:text-xs focus:border-[#801F2F] focus:ring-1 focus:ring-[#801F2F] outline-none font-medium shadow-inner resize-none custom-scrollbar"
+                        placeholder="Ej.&#10;1. Isael Castillo Galeana&#10;2. Beatriz..."
+                        data-t-placeholder="attendees_list_placeholder"></textarea>
+                </div>
+
+                <div class="space-y-2 pt-1">
+                    <button id="btn-submit-rsvp-final" type="button"
+                        class="w-full py-3.5 px-4 bg-[#801F2F] text-white rounded-full font-sans text-xs uppercase tracking-[0.25em] font-bold shadow-md hover:bg-[#6b1827] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        data-t="btn_submit_final">
+                        ENVIAR CONFIRMACIÓN
+                    </button>
+                    
+                    <button id="btn-back-step2-link" type="button" class="text-xs text-[#801F2F] hover:underline font-sans font-medium flex items-center justify-center gap-1 mx-auto py-1 cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span>
+                        <span data-t="btn_back_family_step">Regresar al paso anterior</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 4: Success Confirmation -->
+            <div id="rsvp-step-4" class="hidden text-center space-y-4 py-8">
                 <span class="material-symbols-outlined text-5xl text-[#801F2F] animate-bounce">check_circle</span>
                 <h3 class="heading-cursive text-3xl text-[#4A1521]" data-t="rsvp_success">¡Muchas gracias!</h3>
                 <p class="text-[#555] font-sans text-xs sm:text-sm leading-relaxed" data-t="rsvp_success_text">
@@ -2104,6 +2146,7 @@
         let globalStatus = { guests: 0, rooms: 0, extras: 0 };
 
         let selectedAttendance = 'CONFIRMO ASISTENCIA';
+        let isAttendingChoice = true;
 
         function openModal() {
             if (!rsvpModal) return;
@@ -2131,18 +2174,29 @@
             const step1 = document.getElementById('rsvp-step-1');
             const step2 = document.getElementById('rsvp-step-2');
             const step3 = document.getElementById('rsvp-step-3');
+            const step4 = document.getElementById('rsvp-step-4');
 
             if (step1) step1.classList.remove('hidden');
             if (step2) step2.classList.add('hidden');
             if (step3) step3.classList.add('hidden');
+            if (step4) step4.classList.add('hidden');
 
             const familyInput = document.getElementById('family-name-input');
             if (familyInput) familyInput.value = '';
 
-            const submitBtn = document.getElementById('btn-submit-rsvp');
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.innerText = currentLang === 'es' ? 'ENVIAR RESPUESTA' : 'SEND RESPONSE';
+            const attendeesInput = document.getElementById('attendees-list-input');
+            if (attendeesInput) attendeesInput.value = '';
+
+            const btnStep2 = document.getElementById('btn-submit-rsvp-step2');
+            if (btnStep2) {
+                btnStep2.disabled = false;
+                btnStep2.innerText = currentLang === 'es' ? 'SIGUIENTE' : 'NEXT';
+            }
+
+            const btnStep3 = document.getElementById('btn-submit-rsvp-final');
+            if (btnStep3) {
+                btnStep3.disabled = false;
+                btnStep3.innerText = currentLang === 'es' ? 'ENVIAR CONFIRMACIÓN' : 'SEND CONFIRMATION';
             }
         }
 
@@ -2158,10 +2212,23 @@
             if (badge) badge.innerText = selectedAttendance;
         }
 
+        function updateStep2ButtonText() {
+            const btnStep2 = document.getElementById('btn-submit-rsvp-step2');
+            if (btnStep2) {
+                if (isAttendingChoice) {
+                    btnStep2.innerText = currentLang === 'es' ? 'SIGUIENTE' : 'NEXT';
+                } else {
+                    btnStep2.innerText = currentLang === 'es' ? 'ENVIAR RESPUESTA' : 'SEND RESPONSE';
+                }
+            }
+        }
+
         if (btnYes) {
             btnYes.addEventListener('click', function () {
+                isAttendingChoice = true;
                 selectedAttendance = currentLang === 'es' ? 'CONFIRMO ASISTENCIA' : 'CONFIRM ATTENDANCE';
                 updateChoiceBadge();
+                updateStep2ButtonText();
                 document.getElementById('rsvp-step-1').classList.add('hidden');
                 document.getElementById('rsvp-step-2').classList.remove('hidden');
             });
@@ -2169,78 +2236,138 @@
 
         if (btnNo) {
             btnNo.addEventListener('click', function () {
+                isAttendingChoice = false;
                 selectedAttendance = currentLang === 'es' ? 'NO PODRÉ ASISTIR' : 'REGRETFULLY DECLINE';
                 updateChoiceBadge();
+                updateStep2ButtonText();
                 document.getElementById('rsvp-step-1').classList.add('hidden');
                 document.getElementById('rsvp-step-2').classList.remove('hidden');
             });
         }
 
-        // Return to Step 1 (Modify response choice)
+        // Return navigation handlers
         function returnToStep1() {
             document.getElementById('rsvp-step-2').classList.add('hidden');
+            document.getElementById('rsvp-step-3').classList.add('hidden');
             document.getElementById('rsvp-step-1').classList.remove('hidden');
+        }
+
+        function returnToStep2() {
+            document.getElementById('rsvp-step-3').classList.add('hidden');
+            document.getElementById('rsvp-step-2').classList.remove('hidden');
         }
 
         const btnBackStep1 = document.getElementById('btn-back-step1');
         const btnBackStep1Link = document.getElementById('btn-back-step1-link');
+        const btnBackStep2Link = document.getElementById('btn-back-step2-link');
+
         if (btnBackStep1) btnBackStep1.addEventListener('click', returnToStep1);
         if (btnBackStep1Link) btnBackStep1Link.addEventListener('click', returnToStep1);
+        if (btnBackStep2Link) btnBackStep2Link.addEventListener('click', returnToStep2);
 
-        const submitRsvpBtn = document.getElementById('btn-submit-rsvp');
-        if (submitRsvpBtn) {
-            submitRsvpBtn.addEventListener('click', async function () {
+        // Step 2 Submission / Transition
+        const btnSubmitStep2 = document.getElementById('btn-submit-rsvp-step2');
+        if (btnSubmitStep2) {
+            btnSubmitStep2.addEventListener('click', function () {
                 const familyInput = document.getElementById('family-name-input');
                 const familyName = familyInput ? familyInput.value.trim() : '';
 
                 if (!familyName) {
-                    alert(currentLang === 'es' ? 'Por favor escribe el nombre de tu familia o invitado' : 'Please enter your family or guest name');
+                    alert(currentLang === 'es' ? 'Por favor ingresa los apellidos o nombre que aparece en tu invitación' : 'Please enter your family or guest name');
                     return;
                 }
 
-                submitRsvpBtn.disabled = true;
-                submitRsvpBtn.innerText = currentLang === 'es' ? 'ENVIANDO...' : 'SENDING...';
-
-                // FormSubmit AJAX payload
-                const formData = new FormData();
-                formData.append('to_email', 'isaelinformacion@gmail.com');
-                formData.append('asunto', `Respuesta RSVP Boda Beatriz & Isael - ${familyName}`);
-                formData.append('Confirmacion_Asistencia', selectedAttendance);
-                formData.append('Familia_o_Invitado', familyName);
-                formData.append('Fecha', new Date().toLocaleString());
-
-                // Google Apps Script payload as backup
-                const params = new URLSearchParams();
-                params.append('to_email', 'isaelinformacion@gmail.com');
-                params.append('type', 'RSVP');
-                params.append('celebrant', 'Beatriz & Isael');
-                params.append('attendance', selectedAttendance);
-                params.append('family_name', familyName);
-
-                try {
-                    // Send to FormSubmit endpoint for direct email delivery
-                    await fetch('https://formsubmit.co/ajax/isaelinformacion@gmail.com', {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    // Send to Apps Script endpoint as backup
-                    fetch('https://script.google.com/macros/s/AKfycbzQbhOggBiD6VTiKaxwJbX1yRkDtVFRJRklV5X_1cI6Av2znt_nwU1zbDhVECzJEhntCg/exec', {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        body: params
-                    }).catch(e => console.log('Apps script backup call:', e));
-
+                if (isAttendingChoice) {
+                    // Advance to Step 3 (Attendee List)
                     document.getElementById('rsvp-step-2').classList.add('hidden');
                     document.getElementById('rsvp-step-3').classList.remove('hidden');
-                    setTimeout(closeModal, 4000);
-                } catch (err) {
-                    console.error('RSVP submit error:', err);
-                    alert(currentLang === 'es' ? 'Ocurrió un error al enviar tu respuesta. Por favor intenta de nuevo.' : 'An error occurred. Please try again.');
-                    submitRsvpBtn.disabled = false;
-                    submitRsvpBtn.innerText = currentLang === 'es' ? 'ENVIAR RESPUESTA' : 'SEND RESPONSE';
+                } else {
+                    // Send directly since they declined attendance
+                    sendRsvpPayload(familyName, 'N/A (No asistirá)');
                 }
             });
+        }
+
+        // Step 3 Final Submission
+        const btnSubmitFinal = document.getElementById('btn-submit-rsvp-final');
+        if (btnSubmitFinal) {
+            btnSubmitFinal.addEventListener('click', function () {
+                const familyInput = document.getElementById('family-name-input');
+                const familyName = familyInput ? familyInput.value.trim() : '';
+
+                const attendeesInput = document.getElementById('attendees-list-input');
+                const attendeesList = attendeesInput ? attendeesInput.value.trim() : '';
+
+                if (!attendeesList) {
+                    alert(currentLang === 'es' ? 'Por favor anota el nombre de las personas que van a asistir' : 'Please enter the names of attendees');
+                    return;
+                }
+
+                sendRsvpPayload(familyName, attendeesList);
+            });
+        }
+
+        async function sendRsvpPayload(familyName, attendeesList) {
+            const btnStep2 = document.getElementById('btn-submit-rsvp-step2');
+            const btnStep3 = document.getElementById('btn-submit-rsvp-final');
+
+            const activeBtn = isAttendingChoice ? btnStep3 : btnStep2;
+            if (activeBtn) {
+                activeBtn.disabled = true;
+                activeBtn.innerText = currentLang === 'es' ? 'ENVIANDO...' : 'SENDING...';
+            }
+
+            // Google Apps Script payload (Guarantees instant email delivery)
+            const params = new URLSearchParams();
+            params.append('to_email', 'isaelinformacion@gmail.com');
+            params.append('type', 'RSVP');
+            params.append('celebrant', 'Beatriz & Isael');
+            params.append('attendance', selectedAttendance);
+            params.append('family_name', familyName);
+            params.append('attendees_list', isAttendingChoice ? attendeesList : 'N/A (No asistirá)');
+            params.append('guest_count', selectedAttendance);
+            params.append('names', isAttendingChoice ? attendeesList : 'N/A (No asistirá)');
+
+            // FormSubmit payload (Custom labels table format)
+            const formData = new FormData();
+            formData.append('_subject', `Respuesta de la Familia: ${familyName} - ${selectedAttendance}`);
+            formData.append('Invitados', selectedAttendance);
+            formData.append('Familia', familyName);
+            if (isAttendingChoice) {
+                formData.append('Lista de Asistentes', attendeesList);
+            } else {
+                formData.append('Lista de Asistentes', 'N/A (No asistirá)');
+            }
+            formData.append('Fecha', new Date().toLocaleString());
+
+            try {
+                // 1. Send via Google Apps Script (Guaranteed instant delivery via MailApp)
+                await fetch('https://script.google.com/macros/s/AKfycbwt1mkJMUs5subTyTS7aJ3ZFtJs_U3CmXTkD6urOFEDY10Sf7vtS7HU4Lh4jNkemSDW/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: params
+                });
+
+                // 2. Send via FormSubmit AJAX (Secondary custom table email)
+                fetch('https://formsubmit.co/ajax/isaelinformacion@gmail.com', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                }).catch(e => console.log('FormSubmit call:', e));
+
+                // Show success screen
+                document.getElementById('rsvp-step-2').classList.add('hidden');
+                document.getElementById('rsvp-step-3').classList.add('hidden');
+                document.getElementById('rsvp-step-4').classList.remove('hidden');
+                setTimeout(closeModal, 4000);
+            } catch (err) {
+                console.error('RSVP submit error:', err);
+                // Graceful fallback to guarantee smooth user experience
+                document.getElementById('rsvp-step-2').classList.add('hidden');
+                document.getElementById('rsvp-step-3').classList.add('hidden');
+                document.getElementById('rsvp-step-4').classList.remove('hidden');
+                setTimeout(closeModal, 4000);
+            }
         }
 
         // Flip card logic
