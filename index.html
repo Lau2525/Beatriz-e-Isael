@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Birthstone:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Dancing+Script:wght@400;500;600&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Montserrat:wght@100;200;300;400&family=Pinyon+Script&family=WindSong:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Birthstone:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Montserrat:wght@100;200;300;400&family=Pinyon+Script&family=Satisfy&family=WindSong:wght@400;500&display=swap"
         rel="stylesheet" />
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -93,6 +93,12 @@
 
         .font-calligraphy {
             font-family: "Pinyon Script", "Alex Brush", "Great Vibes", cursive;
+        }
+
+        .heading-cursive {
+            font-family: "Satisfy", "Dancing Script", cursive;
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
 
         .intimate-dedication {
@@ -607,7 +613,7 @@
             top: 1.5rem;
             right: 1.5rem;
             z-index: 300;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 0.5rem 1rem;
             border-radius: 99px;
@@ -615,19 +621,36 @@
             font-size: 10px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #7a5a3a;
-            border: 1px solid rgba(122, 90, 58, 0.4);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            color: #8a6623 !important;
+            border: 2.5px solid transparent !important;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                              linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%) !important;
+            background-origin: border-box !important;
+            background-clip: padding-box, border-box !important;
+            box-shadow: 0 4px 15px rgba(170, 119, 28, 0.15), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        @media (max-width: 767px) {
+            .lang-switch-btn {
+                top: 1rem;
+                right: 1rem;
+                padding: 0.4rem 0.75rem;
+            }
         }
 
         .lang-switch-btn:hover {
-            background: #fff;
-            box-shadow: 0 6px 20px rgba(174, 145, 108, 0.15);
-            transform: translateY(-1px);
+            transform: scale(1.05) translateY(-1px) !important;
+            background-image: linear-gradient(white, white), 
+                              linear-gradient(135deg, #fcf6ba 0%, #bf953f 25%, #aa771c 50%, #fbf5b7 75%, #b38728 100%) !important;
+            box-shadow: 0 6px 16px rgba(170, 119, 28, 0.25), 
+                        inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+            color: #aa771c !important;
         }
 
         /* ============================= */
@@ -975,7 +998,7 @@
     </div>
 
     <!-- Language Toggle Floating Control -->
-    <div id="lang-toggle" class="fixed top-6 right-6 z-[300] bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-md border border-[#4A1521]/15 cursor-pointer flex items-center gap-2 text-xs font-sans font-medium text-[#4A1521] transition-all hover:bg-white hover:shadow-lg">
+    <div id="lang-toggle" class="lang-switch-btn">
         <span class="material-symbols-outlined text-[14px]">translate</span>
         <span id="lang-label">ES | EN</span>
     </div>
@@ -1146,7 +1169,7 @@
             <!-- BLOQUE: NUESTROS PADRES -->
             <div class="space-y-6 pt-2">
                 <div>
-                    <h3 class="fine-script text-4xl sm:text-5xl text-[#5A1D28] leading-none mb-4">
+                    <h3 class="heading-cursive text-3xl sm:text-4xl text-[#5A1D28] leading-none mb-4" data-t="parents_title">
                         Nuestros Padres
                     </h3>
                 </div>
@@ -1189,7 +1212,7 @@
 
             <!-- BLOQUE: NUESTROS PADRINOS -->
             <div class="space-y-3 pt-2">
-                <h3 class="fine-script text-4xl sm:text-5xl text-[#5A1D28] leading-none mb-4">
+                <h3 class="heading-cursive text-3xl sm:text-4xl text-[#5A1D28] leading-none mb-4" data-t="godparents_title">
                     Nuestros Padrinos
                 </h3>
                 <p class="font-display text-lg sm:text-xl text-[#2d2d2d] font-medium tracking-wide">
@@ -1208,7 +1231,7 @@
             <div class="arch-burgundy-card pt-10 pb-12 px-6 text-center overflow-visible space-y-8">
                 <!-- Bloque: Ceremonia -->
                 <div>
-                    <h3 class="fine-script text-5xl sm:text-4xl text-[#f9f3e9] leading-none mb-4" data-t="religious_ceremony">Ceremonia</h3>
+                    <h3 class="heading-cursive text-3xl sm:text-4xl text-[#f9f3e9] leading-none mb-4" data-t="religious_ceremony">Ceremonia</h3>
                     <p class="font-sans text-xs uppercase tracking-[0.25em] text-[#f4eedc] font-semibold mb-2" data-t="cathedral_name">Sede Parroquial "San Mateo"</p>
                     <p class="font-sans text-[11px] text-[#eedbc5]/90 tracking-wider mb-4" data-t="ceremony_address">Santa Barbara, 62840 Atlatlahucan, Mor.</p>
                     <div class="inline-block bg-[#3d080c]/60 border border-[#f4eedc]/20 px-5 py-2 rounded-full mb-6"><p class="font-display text-xl tracking-widest text-[#fcf6ba] font-bold">1:00 PM</p></div>
@@ -1217,7 +1240,7 @@
                 <div class="flex items-center justify-center gap-3 my-2"><div class="h-[0.5px] w-16 bg-[#e9dec9]/30"></div><span class="fine-script text-2xl text-[#fcf6ba]">&amp;</span><div class="h-[0.5px] w-16 bg-[#e9dec9]/30"></div></div>
                 <!-- Bloque: La Recepción -->
                 <div>
-                    <h3 class="fine-script text-5xl sm:text-4xl text-[#f9f3e9] leading-none mb-4" data-t="reception">La Recepción</h3>
+                    <h3 class="heading-cursive text-3xl sm:text-4xl text-[#f9f3e9] leading-none mb-4" data-t="reception">La Recepción</h3>
                     <p class="font-sans text-xs uppercase tracking-[0.25em] text-[#f4eedc] font-semibold mb-2" data-t="reception_place">Salón para eventos "El Venado"</p>
                     <p class="font-sans text-[11px] text-[#eedbc5]/90 tracking-wider mb-4" data-t="reception_address">San Antonio, 62840, Atlatlahucan, Mor.</p>
                     <div class="inline-block bg-[#3d080c]/60 border border-[#f4eedc]/20 px-5 py-2 rounded-full mb-6"><p class="font-display text-xl tracking-widest text-[#fcf6ba] font-bold">3:00 PM</p></div>
@@ -1231,166 +1254,12 @@
             <img src="img/VESTIMENTA_TRANSPARENTE.png" alt="Código de Vestimenta" class="w-full max-w-sm h-auto block" />
         </section>
 
-        <!-- ITINERARIO / TIMELINE (TikTok Ref 6 & 7) -->
-        <section class="px-4 py-12 mb-16 text-center">
-            <h3 class="fine-script text-5xl sm:text-6xl text-[#4A1521] leading-none mb-10" data-t="itinerary_title">
+        <!-- ITINERARIO SECTION: Imagen oficial transparente -->
+        <section class="w-full my-8 relative flex flex-col justify-center items-center px-0">
+            <h3 class="heading-cursive text-3xl sm:text-4xl text-[#4A1521] leading-none mb-4" data-t="itinerary_title">
                 Itinerario
             </h3>
-
-            <div class="timeline-container relative max-w-sm mx-auto space-y-12">
-                <!-- Item 1: Ceremonia -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4 text-right">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">church</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">1:00 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_ceremony">Ceremonia Religiosa</p>
-                    </div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4"></div>
-                </div>
-
-                <!-- Item 2: Fotografías -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4"></div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4 text-left">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">celebration</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">2:00 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_fotos">Sesión Fotográfica</p>
-                    </div>
-                </div>
-
-
-                <!-- Item 3: Recepción -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4 text-right">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">celebration</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">3:00 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_reception">Recepción</p>
-                    </div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4"></div>
-                </div>
-
-
-                <!-- Item 3: Llegada Novios -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4"></div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4 text-left">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">favorite</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">3:30 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_arrival">Llegada de los novios</p>
-                    </div>
-                </div>
-
-
-                <!-- Item 4: Brindis -->
-                <div class="relative flex items-center justify-between">
-                      <div class="w-5/12 pr-4 text-right">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">wine_bar</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">3:40 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_toast">Brindis</p>
-                    </div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4"></div>
-                </div>
-
-
-
-                <!-- Item 5: Comida -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4"></div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4 text-left">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">restaurant</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">4:00 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_dinner">Comida / Banquete</p>
-                    </div>
-                </div>
-
-
-                <!-- Item 6: Pastel -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4 text-right">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">music_note</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">5:00 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_cake">Pastel</p>
-                    </div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4"></div>
-                </div>
-
-
-                <!-- Item 7: Mesa de dulces -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4"></div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4 text-left">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">celebration</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">5:30 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_candies">Mesa de dulces</p>
-                    </div>
-                </div>
-
-
-                <!-- Item 8: Vals -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4 text-right">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">music_note</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">6:00 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_waltz">Vals</p>
-                    </div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4"></div>
-                </div>
-
-                <!-- Item 9: Tornafiesta -->
-                <div class="relative flex items-center justify-between">
-                   <div class="w-5/12 pr-4"></div>
-                   <div class="timeline-heart-node">♥</div>
-                   <div class="w-5/12 pl-4 text-left">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">music_note</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">9:00 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_torna">Tornafiesta</p>
-                    </div>
-                </div>
-
-
-                <!-- Item 10: Fin de la boda -->
-                <div class="relative flex items-center justify-between">
-                    <div class="w-5/12 pr-4 text-right">
-                        <div class="inline-flex p-2 bg-[#5A1D28]/10 rounded-full text-[#5A1D28] mb-1">
-                            <span class="material-symbols-outlined text-2xl">music_note</span>
-                        </div>
-                        <p class="font-display font-bold text-base text-[#4A1521] leading-tight">12:00 PM</p>
-                        <p class="font-sans text-[11px] tracking-wider text-[#555]" data-t="tl_end">End</p>
-                    </div>
-                    <div class="timeline-heart-node">♥</div>
-                    <div class="w-5/12 pl-4"></div>
-                </div>
-
-            </div>
+            <img src="img/ItinerarioOficial.png" alt="Itinerario" class="w-full max-w-md sm:max-w-lg h-auto block" />
         </section>
 
         <!-- MESA DE REGALOS (TikTok Ref 7 & 8) -->
@@ -1398,41 +1267,62 @@
             <div class="w-16 h-12 bg-[#5A1D28] mx-auto rounded-lg flex items-center justify-center text-white mb-4 shadow-sm">
                 <span class="material-symbols-outlined text-2xl">mail</span>
             </div>
-            <h3 class="fine-script text-5xl text-[#4A1521] mb-2" data-t="wedding_gift">
+            <h3 class="heading-cursive text-3xl sm:text-4xl text-[#4A1521] mb-2" data-t="wedding_gift">
                 Mesa de Regalos
             </h3>
             <p class="font-sans text-xs text-[#555] max-w-xs mx-auto leading-relaxed mb-6" data-t="gift_text">
                 Su presencia es nuestro mayor regalo, pero si desean darnos un presente con mucho cariño, también lo pueden hacer de la siguiente forma:
             </p>
 
-            <div class="p-4 max-w-xs mx-auto text-center space-y-2">
+            <div class="p-4 max-w-xs mx-auto text-center space-y-3">
                 <p class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#5A1D28] font-bold" data-t="envelope_box">
                     Lluvia de Sobres / Transferencia
                 </p>
-                <div class="h-[0.5px] w-16 bg-[#C5A059]/40 mx-auto"></div>
-                <p class="font-sans text-xs text-[#333] font-medium" data-t="account_info">
-                    BBVA / Transferencia Bancaria
-                </p>
-                <p class="font-sans text-[11px] text-[#666] tracking-wider">
-                    CLABE: <span class="font-mono text-[#4A1521] font-semibold">1234 5678 9012 3456</span>
-                </p>
-                <p class="font-sans text-[11px] text-[#666]">
-                    Titular: <span class="font-medium text-[#4A1521]">Beatriz &amp; Isael</span>
-                </p>
+                <div class="h-[0.5px] w-16 bg-[#C5A059]/40 mx-auto mb-2"></div>
+                
+                <!-- Botón interactivo para desplegar datos bancarios -->
+                <button id="toggle-bank-details" type="button" class="mx-auto px-4 py-2 bg-[#fdfcf0] border border-[#ae916c]/60 rounded-full text-[#801F2F] text-xs font-sans font-medium flex items-center justify-center gap-2 shadow-sm hover:bg-white hover:border-[#801F2F] transition-all cursor-pointer">
+                    <span class="material-symbols-outlined text-sm">account_balance</span>
+                    <span data-t="view_account">Ver datos bancarios</span>
+                    <span id="bank-chevron" class="material-symbols-outlined text-sm transition-transform duration-300">expand_more</span>
+                </button>
+
+                <!-- Tarjeta desplegable con datos bancarios protegidos -->
+                <div id="bank-details-box" class="hidden transition-all duration-300 bg-white/95 border border-[#C5A059]/40 rounded-xl p-4 mt-3 shadow-md text-center space-y-2.5">
+                    <p class="font-sans text-xs text-[#801F2F] font-bold uppercase tracking-wider" data-t="account_info">
+                        BANAMEX / Transferencia Bancaria
+                    </p>
+                    <div class="h-[0.5px] w-12 bg-[#C5A059]/40 mx-auto"></div>
+                    
+                    <div class="space-y-1">
+                        <p class="font-sans text-[11px] text-[#666] tracking-wider uppercase font-medium">
+                            Número de Tarjeta / Cuenta:
+                        </p>
+                        <p class="font-mono text-[#801F2F] font-bold text-[11px] sm:text-xs tracking-wider select-all whitespace-nowrap bg-[#fdfcf0] py-1 px-2.5 rounded-lg border border-[#C5A059]/30 inline-block shadow-inner max-w-full">
+                            5204 1657 6737 8692
+                        </p>
+                    </div>
+
+                    <p class="font-sans text-[11px] text-[#555] pt-1">
+                        Titular: <span class="font-semibold text-[#4A1521]">Isael Castillo Galeana</span>
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- DEDICATORIA / QUOTE LIBRE PERSONALIZABLE -->
         <section class="px-6 py-8 mb-16 text-center relative max-w-sm mx-auto">
-            <div class="flex items-center justify-center gap-3 mb-4">
+            <div class="flex items-center justify-center gap-3 mb-6">
                 <div class="h-[0.5px] w-8 bg-[#C5A059]"></div>
-                <span class="font-calligraphy text-3xl text-[#801F2F]">Nuestra Promesa</span>
+                <span class="heading-cursive text-3xl sm:text-4xl text-[#801F2F]">Nuestra Promesa</span>
                 <div class="h-[0.5px] w-8 bg-[#C5A059]"></div>
             </div>
             <!-- Editable custom quote -->
-            <blockquote class="font-display italic text-lg sm:text-xl text-[#3A141A] leading-relaxed max-w-sm mx-auto mb-4" data-t="custom_free_quote">
-                "Caminar de tu mano es el sueño que hoy se convierte en nuestra historia para siempre."
-            </blockquote>
+            <div class="font-display italic text-base sm:text-lg text-[#3A141A] leading-relaxed max-w-sm mx-auto mb-6 space-y-4" data-t="custom_free_quote">
+                <p>"Dónde estés tú, estará mi hogar, porque caminar de tu mano es ver cumplida la promesa de Dios."</p>
+                <p>"Y sé que, tomados de la mano, cualquier aventura será emocionante, porque no importa qué difícil sea el camino, sé que tú estarás a mi lado."</p>
+                <p>"Y hoy, tomados de la mano comenzamos a escribir nuestra historia."</p>
+            </div>
             <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-[#801F2F] font-bold" data-t="custom_quote_author">
                 — Beatriz &amp; Isael
             </p>
@@ -1443,7 +1333,7 @@
             <p class="font-sans text-[10px] uppercase tracking-[0.35em] text-[#5A1D28] font-semibold mb-1" data-t="confirm_intro_label">
                 CONFIRMA TU
             </p>
-            <h3 class="fine-script text-5xl sm:text-6xl text-[#4A1521] leading-none mb-4" data-t="rsvp_title">
+            <h3 class="heading-cursive text-3xl sm:text-4xl text-[#4A1521] leading-none mb-4" data-t="rsvp_title">
                 Asistencia
             </h3>
 
@@ -1516,7 +1406,7 @@
                 btn.innerText = currentLang === 'es' ? 'Enviando...' : 'Sending...';
 
                 const params = new URLSearchParams();
-                params.append('to_email', 'angel_dior2011@icloud.com');
+                params.append('to_email', 'isaelinformacion@gmail.com');
                 params.append('type', 'Guestbook');
                 params.append('celebrant', 'Beatriz & Isael');
                 params.append('message', message);
@@ -1552,7 +1442,7 @@
             <p class="font-sans text-[10px] uppercase tracking-[0.3em] text-[#5A1D28] font-bold mb-1" data-t="moments_header">
                 LOS MEJORES MOMENTOS DE LA VIDA
             </p>
-            <p class="font-calligraphy text-4xl sm:text-5xl text-[#801F2F] my-1" data-t="moments_highlight">
+            <p class="heading-cursive text-3xl sm:text-4xl text-[#801F2F] my-1" data-t="moments_highlight">
                 merecen ser compartidos
             </p>
             <div class="flex items-center justify-center gap-3 my-4">
@@ -1579,13 +1469,6 @@
         <div class="w-full text-center pt-12 pb-2">
             <p class="font-sans text-[10px] text-deep-grey/70 tracking-wider flex items-center justify-center gap-1.5">
                 <span>@Created by Laura I. C. Galeana</span>
-                <span class="text-deep-grey/30">|</span>
-                <!-- SVG Icon for Email -->
-                <svg class="w-3.5 h-3.5 text-deep-grey/70 inline-block align-middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <a href="mailto:galelau6@gmail.com" class="hover:text-bright-gold transition-colors">galelau6@gmail.com</a>
             </p>
         </div>
     </main>
@@ -1743,9 +1626,9 @@
                 dress_suggestion: "Reserva el color blanco para la novia",
                 wedding_gift: "Mesa de Regalos",
                 gift_text: "Su presencia es nuestro mayor regalo, pero si desean darnos un presente con mucho cariño, también lo pueden hacer de la siguiente forma:",
-                view_account: "Ver número de cuenta",
+                view_account: "Ver datos bancarios",
                 envelope_box: "Lluvia de Sobres / Transferencia",
-                account_info: "BBVA / Transferencia Bancaria",
+                account_info: "BANAMEX / Transferencia Bancaria",
                 account_name: "Nombre de Cuenta",
                 bank_clabe: "Banco / CLABE",
                 itinerary_title: "Itinerario",
@@ -1762,7 +1645,7 @@
                 tl_end:"Fin de la celebreación",
                 ceremony_address: "Santa Barbara, 62840 Atlatlahucan, Mor.",
                 reception_address: "San Antonio, 62840, Atlatlahucan, Mor.",
-                custom_free_quote: "\"Caminar de tu mano es el sueño que hoy se convierte en nuestra historia para siempre.\"",
+                custom_free_quote: "<p>\"Dónde estés tú, estará mi hogar, porque caminar de tu mano es ver cumplida la promesa de Dios.\"</p><p>\"Y sé que, tomados de la mano, cualquier aventura será emocionante, porque no importa qué difícil sea el camino, sé que tú estarás a mi lado.\"</p><p>\"Y hoy, tomados de la mano comenzamos a escribir nuestra historia.\"</p>",
                 custom_quote_author: "— Beatriz & Isael",
                 confirm_intro_label: "CONFIRMA TU",
                 moments_header: "LOS MEJORES MOMENTOS DE LA VIDA",
@@ -1772,12 +1655,17 @@
                 rsvp_title: "Asistencia",
                 rsvp_deadline: "Favor de confirmar antes del 26 de Noviembre",
                 confirm_attendance: "CONFIRMAR AQUÍ",
-                guest_count_title: "¿Cuántos invitados son?",
-                next_button: "Siguiente",
-                guest_names_title: "Nombres completos de invitados",
-                submit_button: "Confirmar",
+                rsvp_policy_msg: "Con mucho amor hemos planeado nuestra boda y, por razones de espacio, no podemos extender la invitación más allá de los nombres que aparecen en ella. Agradecemos profundamente tu comprensión.",
+                btn_confirm_attending: "CONFIRMO ASISTENCIA",
+                btn_decline_attending: "NO PODRÉ ASISTIR",
+                family_name_header: "Nombre de la Familia",
+                family_name_label: "Por favor ingresa los apellidos o nombre que aparece en tu invitación:",
+                family_name_placeholder: "Ej. FAMILIA CASTILLO GALEANA",
+                submit_rsvp_btn: "ENVIAR RESPUESTA",
+                btn_modify_choice: "Modificar",
+                btn_modify_choice_full: "Modificar respuesta (Sí / No)",
                 rsvp_success: "¡Muchas gracias!",
-                rsvp_success_text: "Tu asistencia ha sido registrada.",
+                rsvp_success_text: "Tu respuesta ha sido registrada y enviada a los novios.",
                 global_guest_err: "Lo sentimos, ya no hay cupo disponible para más invitados.",
                 global_limit_title: "Evento Completo",
                 suggestions_title: "Sugerencias",
@@ -1848,9 +1736,9 @@
                 dress_suggestion: "Please reserve white for the bride",
                 wedding_gift: "Wedding Gift Table",
                 gift_text: "Your presence is our greatest gift, but if you wish to honor us with a gift, you may do so as follows:",
-                view_account: "View account number",
+                view_account: "View bank details",
                 envelope_box: "Envelope / Wire Transfer",
-                account_info: "Bank Wire Transfer",
+                account_info: "BANAMEX / Wire Transfer",
                 account_name: "Account Holder",
                 bank_clabe: "Bank / CLABE",
                 itinerary_title: "Itinerary",
@@ -1867,7 +1755,7 @@
                 tl_end: "End of the Celebration",
                 ceremony_address: "Santa Barbara, 62840 Atlatlahucan, Mor.",
                 reception_address: "San Antonio, 62840, Atlatlahucan, Mor.",
-                custom_free_quote: "\"Walking by your side is the dream that today becomes our forever story.\"",
+                custom_free_quote: "<p>\"Wherever you are will be my home, because walking by your side is seeing God's promise fulfilled.\"</p><p>\"And I know that, holding hands, any adventure will be exciting, because no matter how difficult the path, I know you will be by my side.\"</p><p>\"And today, hand in hand, we begin to write our story.\"</p>",
                 custom_quote_author: "— Beatriz & Isael",
                 confirm_intro_label: "CONFIRM YOUR",
                 moments_header: "LIFE'S BEST MOMENTS",
@@ -1877,12 +1765,17 @@
                 rsvp_title: "Attendance",
                 rsvp_deadline: "Please confirm before November 26th",
                 confirm_attendance: "CONFIRM HERE",
-                guest_count_title: "How many guests?",
-                next_button: "Next",
-                guest_names_title: "Full names of guests",
-                submit_button: "Confirm",
-                rsvp_success: "Thank you!",
-                rsvp_success_text: "Your attendance has been recorded.",
+                rsvp_policy_msg: "With much love we have planned our wedding and, due to space limitations, we cannot extend the invitation beyond the names listed on it. We deeply appreciate your understanding.",
+                btn_confirm_attending: "CONFIRM ATTENDANCE",
+                btn_decline_attending: "REGRETFULLY DECLINE",
+                family_name_header: "Family Name",
+                family_name_label: "Please enter the family or guest name as shown on your invitation:",
+                family_name_placeholder: "Ex. CASTILLO GALEANA FAMILY",
+                submit_rsvp_btn: "SEND RESPONSE",
+                btn_modify_choice: "Change",
+                btn_modify_choice_full: "Change choice (Yes / No)",
+                rsvp_success: "Thank you very much!",
+                rsvp_success_text: "Your response has been recorded and sent to the couple.",
                 global_guest_err: "Sorry, there are no more spots available for additional guests.",
                 global_limit_title: "Event Full",
                 suggestions_title: "Suggestions",
@@ -1986,6 +1879,20 @@
             });
         }
 
+        // Bank Details Toggle Event Listener
+        const toggleBankBtn = document.getElementById('toggle-bank-details');
+        const bankDetailsBox = document.getElementById('bank-details-box');
+        const bankChevron = document.getElementById('bank-chevron');
+
+        if (toggleBankBtn && bankDetailsBox) {
+            toggleBankBtn.addEventListener('click', function () {
+                bankDetailsBox.classList.toggle('hidden');
+                if (bankChevron) {
+                    bankChevron.classList.toggle('rotate-180');
+                }
+            });
+        }
+
 
 
         // Countdown logic
@@ -2075,68 +1982,95 @@
 
         <!-- Modal Content -->
         <div id="modal-container"
-            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg bg-white rounded-t-[40px] shadow-[0_-20px_60px_rgba(0,0,0,0.1)] p-6 sm:p-8 transform translate-y-full transition-transform duration-500 ease-out sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2 sm:rounded-[30px] overflow-y-auto max-h-[95vh] custom-scrollbar px-6">
+            class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white rounded-t-[30px] sm:rounded-[30px] shadow-2xl p-6 sm:p-8 transform translate-y-full transition-transform duration-500 ease-out sm:top-1/2 sm:bottom-auto sm:-translate-y-1/2 overflow-y-auto max-h-[90vh] custom-scrollbar px-6 text-center">
 
             <!-- Close Button -->
-            <button id="close-modal"
-                class="absolute top-6 right-6 text-charcoal/20 hover:text-charcoal/40 transition-colors">
-                <span class="material-symbols-outlined">close</span>
+            <button id="close-modal" type="button"
+                class="absolute top-5 right-5 text-charcoal/30 hover:text-charcoal transition-colors">
+                <span class="material-symbols-outlined text-2xl">close</span>
             </button>
 
-            <!-- Step 1: Guest Count -->
-            <div id="step-1" class="space-y-8">
-                <div id="global-err-msg"
-                    class="hidden p-10 mx-4 bg-orange-50 border border-orange-200 rounded-lg text-base leading-relaxed text-orange-800 text-center font-bold">
+            <!-- Step 1: Policy Text & Attendance Choice -->
+            <div id="rsvp-step-1" class="space-y-6 py-2">
+                <div class="w-12 h-12 bg-[#801F2F]/10 text-[#801F2F] rounded-full flex items-center justify-center mx-auto mb-2">
+                    <span class="material-symbols-outlined text-2xl">favorite</span>
                 </div>
-                <div class="text-center space-y-2">
-                    <h3 class="font-display italic text-3xl text-charcoal" data-t="guest_count_title">¿Cuántos invitados
-                        son?</h3>
-                    <div class="w-12 h-[1px] bg-bright-gold mx-auto opacity-30"></div>
-                </div>
+                
+                <h3 class="heading-cursive text-3xl text-[#4A1521]" data-t="rsvp_title">
+                    Asistencia
+                </h3>
 
-                <div class="flex items-center justify-center gap-8">
-                    <button id="minus-guest"
-                        class="w-12 h-12 rounded-full border border-bright-gold/20 flex items-center justify-center text-bright-gold hover:bg-bright-gold/5 transition-colors">
-                        <span class="material-symbols-outlined">remove</span>
+                <p class="font-sans text-xs sm:text-sm text-[#4A4A4A] leading-relaxed px-2 font-normal" data-t="rsvp_policy_msg">
+                    Con mucho amor hemos planeado nuestra boda y, por razones de espacio, no podemos extender la invitación más allá de los nombres que aparecen en ella. Agradecemos profundamente tu comprensión.
+                </p>
+
+                <div class="h-[0.5px] w-16 bg-[#C5A059]/40 mx-auto"></div>
+
+                <div class="space-y-3 pt-2">
+                    <button id="btn-choice-yes" type="button"
+                        class="w-full py-3.5 px-4 bg-[#801F2F] text-white rounded-full font-sans text-xs uppercase tracking-[0.2em] font-bold shadow-md hover:bg-[#6b1827] active:scale-[0.98] transition-all"
+                        data-t="btn_confirm_attending">
+                        CONFIRMO ASISTENCIA
                     </button>
-                    <span id="guest-count-display" class="font-display text-5xl text-charcoal">1</span>
-                    <button id="plus-guest"
-                        class="w-12 h-12 rounded-full border border-bright-gold/20 flex items-center justify-center text-bright-gold hover:bg-bright-gold/5 transition-colors">
-                        <span class="material-symbols-outlined">add</span>
+
+                    <button id="btn-choice-no" type="button"
+                        class="w-full py-3.5 px-4 bg-transparent border border-[#801F2F]/40 text-[#801F2F] rounded-full font-sans text-xs uppercase tracking-[0.2em] font-bold hover:bg-[#801F2F]/5 active:scale-[0.98] transition-all"
+                        data-t="btn_decline_attending">
+                        NO PODRÉ ASISTIR
                     </button>
                 </div>
-
-                <button id="btn-next"
-                    class="w-full bg-bright-gold text-white font-sans text-[10px] uppercase tracking-[0.4em] py-6 font-bold shadow-lg mt-4"
-                    data-t="next_button">Siguiente</button>
             </div>
 
-            <!-- Step 2: Guest Names -->
-            <div id="step-2" class="hidden space-y-8">
-                <div class="text-center space-y-2">
-                    <h3 class="font-display italic text-3xl text-charcoal" data-t="guest_names_title">Nombres de
-                        invitados</h3>
+            <!-- Step 2: Family / Guest Name Input -->
+            <div id="rsvp-step-2" class="hidden space-y-5 py-2">
+                <!-- Selected Choice Badge & Modify Button -->
+                <div class="inline-flex items-center justify-center gap-2 bg-[#fdfcf0] border border-[#C5A059]/40 rounded-full px-4 py-1.5 text-xs text-[#801F2F] font-sans font-medium shadow-sm">
+                    <span id="selected-choice-badge" class="font-bold">CONFIRMO ASISTENCIA</span>
+                    <button id="btn-back-step1" type="button" class="text-[#801F2F] hover:underline flex items-center gap-0.5 ml-1 text-[11px] font-semibold cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">edit</span>
+                        <span data-t="btn_modify_choice">Modificar</span>
+                    </button>
                 </div>
-                <div id="guest-names-container" class="space-y-4 max-h-[30vh] overflow-y-auto px-1 custom-scrollbar">
-                </div>
-                <button id="btn-submit"
-                    class="w-full bg-bright-gold text-white font-sans text-[10px] uppercase tracking-[0.4em] py-6 font-bold shadow-lg mt-4"
-                    data-t="submit_button">Confirmar</button>
-            </div>
 
-            <!-- Step 4: Success -->
-            <div id="step-4" class="hidden text-center space-y-6 py-10">
-                <span class="material-symbols-outlined text-6xl text-bright-gold animate-bounce">check_circle</span>
-                <h3 class="font-display italic text-3xl text-charcoal" data-t="rsvp_success">¡Muchas gracias!</h3>
-                <p class="text-deep-grey/80 font-display text-lg" data-t="rsvp_success_text">Tu asistencia ha sido
-                    registrada.</p>
-                <div class="px-8 pt-4 border-t border-bright-gold/10">
-                    <p class="text-[14px] leading-relaxed text-charcoal/60 italic" data-t="rsvp_contact_note">
-                        Te contactaremos a la brevedad para coordinar los detalles del pago de tu estancia y otros
-                        pormenores.
+                <div class="text-center space-y-1">
+                    <h3 class="heading-cursive text-3xl text-[#4A1521]" data-t="family_name_header">
+                        Nombre de la Familia
+                    </h3>
+                    <p class="font-sans text-xs text-[#666]" data-t="family_name_label">
+                        Por favor ingresa los apellidos o nombre que aparece en tu invitación:
                     </p>
                 </div>
+
+                <div class="pt-1">
+                    <input type="text" id="family-name-input"
+                        class="w-full bg-[#fdfcf0] border border-[#C5A059]/50 rounded-xl px-4 py-3.5 font-sans text-sm text-[#4A1521] placeholder:text-[#999] placeholder:font-sans placeholder:text-xs placeholder:tracking-wider focus:border-[#801F2F] focus:ring-1 focus:ring-[#801F2F] outline-none text-center font-medium shadow-inner uppercase"
+                        placeholder="Ej. FAMILIA CASTILLO GALEANA"
+                        data-t-placeholder="family_name_placeholder" />
+                </div>
+
+                <div class="space-y-2 pt-1">
+                    <button id="btn-submit-rsvp" type="button"
+                        class="w-full py-3.5 px-4 bg-[#801F2F] text-white rounded-full font-sans text-xs uppercase tracking-[0.25em] font-bold shadow-md hover:bg-[#6b1827] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        data-t="submit_rsvp_btn">
+                        ENVIAR RESPUESTA
+                    </button>
+                    
+                    <button id="btn-back-step1-link" type="button" class="text-xs text-[#801F2F] hover:underline font-sans font-medium flex items-center justify-center gap-1 mx-auto py-1 cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span>
+                        <span data-t="btn_modify_choice_full">Modificar respuesta (Sí / No)</span>
+                    </button>
+                </div>
             </div>
+
+            <!-- Step 3: Success Confirmation -->
+            <div id="rsvp-step-3" class="hidden text-center space-y-4 py-8">
+                <span class="material-symbols-outlined text-5xl text-[#801F2F] animate-bounce">check_circle</span>
+                <h3 class="heading-cursive text-3xl text-[#4A1521]" data-t="rsvp_success">¡Muchas gracias!</h3>
+                <p class="text-[#555] font-sans text-xs sm:text-sm leading-relaxed" data-t="rsvp_success_text">
+                    Tu respuesta ha sido registrada y enviada a los novios.
+                </p>
+            </div>
+
         </div>
     </div>
 
@@ -2169,42 +2103,22 @@
 
         let globalStatus = { guests: 0, rooms: 0, extras: 0 };
 
-        async function syncGlobalStatus() {
-            try {
-                // To fetch these limits, the Google Apps Script needs a doGet(e) method returning JSON.
-                // If it fails, we assume 0 used slots for now.
-                const resp = await fetch('https://script.google.com/macros/s/AKfycbzQbhOggBiD6VTiKaxwJbX1yRkDtVFRJRklV5X_1cI6Av2znt_nwU1zbDhVECzJEhntCg/exec?action=getStatus');
-                if (!resp.ok) throw new Error("Status API not available");
-                const data = await resp.json();
-                if (data) {
-                    globalStatus = {
-                        guests: parseInt(data.guests) || 0,
-                        rooms: parseInt(data.rooms) || 0,
-                        extras: parseInt(data.extras) || 0
-                    };
-                }
-            } catch (e) {
-                console.warn("Global status sync failed, using local fallback", e);
-            }
-        }
+        let selectedAttendance = 'CONFIRMO ASISTENCIA';
 
-        let guestCount = 1;
-
-        async function openModal() {
+        function openModal() {
+            if (!rsvpModal) return;
             rsvpModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
-
-            // Show loading or just proceed, but fetch latest data
-            await syncGlobalStatus();
 
             setTimeout(() => {
                 modalBackdrop.style.opacity = '1';
                 modalContainer.style.transform = window.innerWidth < 640 ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-50%)';
             }, 10);
-            resetSteps();
+            resetRsvpSteps();
         }
 
         function closeModal() {
+            if (!rsvpModal) return;
             modalBackdrop.style.opacity = '0';
             modalContainer.style.transform = window.innerWidth < 640 ? 'translateX(-50%) translateY(100%)' : 'translateX(-50%) translateY(-40%)';
             setTimeout(() => {
@@ -2213,119 +2127,121 @@
             }, 500);
         }
 
-        function resetSteps() {
-            document.getElementById('step-1').classList.remove('hidden');
-            document.getElementById('step-2').classList.add('hidden');
-            document.getElementById('step-4').classList.add('hidden');
-            guestCount = 1;
-            updateGuestDisplay();
-        }
+        function resetRsvpSteps() {
+            const step1 = document.getElementById('rsvp-step-1');
+            const step2 = document.getElementById('rsvp-step-2');
+            const step3 = document.getElementById('rsvp-step-3');
 
-        openModalBtn.addEventListener('click', openModal);
-        closeModalBtn.addEventListener('click', closeModal);
-        modalBackdrop.addEventListener('click', closeModal);
+            if (step1) step1.classList.remove('hidden');
+            if (step2) step2.classList.add('hidden');
+            if (step3) step3.classList.add('hidden');
 
-        const minusGuest = document.getElementById('minus-guest');
-        const plusGuest = document.getElementById('plus-guest');
-        const guestDisplay = document.getElementById('guest-count-display');
+            const familyInput = document.getElementById('family-name-input');
+            if (familyInput) familyInput.value = '';
 
-        function updateGuestDisplay() {
-            guestDisplay.innerText = guestCount;
-        }
-
-        minusGuest.addEventListener('click', () => { if (guestCount > 1) { guestCount--; updateGuestDisplay(); } });
-        plusGuest.addEventListener('click', () => { if (guestCount < 10) { guestCount++; updateGuestDisplay(); } });
-
-        // Step 1 to Step 2
-        document.getElementById('btn-next').addEventListener('click', () => {
-            const globalErrorDiv = document.getElementById('global-err-msg');
-            const langData = translations[currentLang];
-
-            if (globalStatus.guests + guestCount > MAX_TOTAL_GUESTS) {
-                globalErrorDiv.innerHTML = `<strong>${langData.global_limit_title}</strong><br>${langData.global_guest_err}`;
-                globalErrorDiv.className = "p-4 bg-red-50 border border-red-200 rounded-lg text-[11px] leading-relaxed text-red-800 text-center mb-4";
-                globalErrorDiv.classList.remove('hidden');
-                return;
-            }
-            globalErrorDiv.classList.add('hidden');
-
-            document.getElementById('step-1').classList.add('hidden');
-            document.getElementById('step-2').classList.remove('hidden');
-
-            const container = document.getElementById('guest-names-container');
-            container.innerHTML = '';
-            for (let i = 1; i <= guestCount; i++) {
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.className = 'w-full bg-transparent border-b border-bright-gold/20 focus:border-bright-gold focus:ring-0 py-4 font-display text-lg placeholder:italic placeholder:text-deep-grey/20';
-                input.placeholder = currentLang === 'es' ? `Nombre Completo Invitado ${i}` : `Guest ${i} Full Name`;
-                input.required = true;
-                // Only allow letters and spaces
-                input.oninput = function () {
-                    this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '');
-                };
-                container.appendChild(input);
-            }
-        });
-
-        // Final Submit Logic
-        document.getElementById('btn-submit').addEventListener('click', () => {
-            const inputs = document.getElementById('guest-names-container').querySelectorAll('input');
-            let allValid = true;
-            let errMsg = '';
-
-            inputs.forEach(input => {
-                const val = input.value.trim();
-                // Check if empty
-                if (!val) {
-                    allValid = false;
-                    errMsg = currentLang === 'es' ? 'Por favor completa todos los nombres' : 'Please fill in all names';
-                }
-                // Check length (at least 3 chars)
-                else if (val.length < 3) {
-                    allValid = false;
-                    errMsg = currentLang === 'es' ? 'Por favor ingresa nombres reales (mínimo 3 letras)' : 'Please enter real names (min 3 letters)';
-                }
-                // Double check numbers just in case
-                else if (/\d/.test(val)) {
-                    allValid = false;
-                    errMsg = currentLang === 'es' ? 'Los nombres no pueden contener números' : 'Names cannot contain numbers';
-                }
-            });
-
-            if (!allValid) {
-                alert(errMsg);
-                return;
-            }
-
-            const namesArr = Array.from(inputs).map(i => i.value);
-
-            const params = new URLSearchParams();
-            params.append('to_email', 'angel_dior2011@icloud.com');
-            params.append('type', 'RSVP');
-            params.append('celebrant', 'Beatriz & Isael');
-            params.append('guest_count', guestCount);
-            params.append('names', namesArr.join(', '));
-
-            const submitBtn = document.getElementById('btn-submit');
-            submitBtn.disabled = true;
-            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-
-            fetch('https://script.google.com/macros/s/AKfycbzQbhOggBiD6VTiKaxwJbX1yRkDtVFRJRklV5X_1cI6Av2znt_nwU1zbDhVECzJEhntCg/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: params
-            }).then(() => {
-                document.getElementById('step-2').classList.add('hidden');
-                document.getElementById('step-4').classList.remove('hidden');
-                setTimeout(closeModal, 8000);
-            }).catch(err => {
-                console.error('RSVP submit error:', err);
-                alert(currentLang === 'es' ? 'Ocurrió un error al enviar la confirmación. Por favor, intenta de nuevo.' : 'An error occurred. Please try again.');
+            const submitBtn = document.getElementById('btn-submit-rsvp');
+            if (submitBtn) {
                 submitBtn.disabled = false;
-                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                submitBtn.innerText = currentLang === 'es' ? 'ENVIAR RESPUESTA' : 'SEND RESPONSE';
+            }
+        }
+
+        if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+        const btnYes = document.getElementById('btn-choice-yes');
+        const btnNo = document.getElementById('btn-choice-no');
+
+        function updateChoiceBadge() {
+            const badge = document.getElementById('selected-choice-badge');
+            if (badge) badge.innerText = selectedAttendance;
+        }
+
+        if (btnYes) {
+            btnYes.addEventListener('click', function () {
+                selectedAttendance = currentLang === 'es' ? 'CONFIRMO ASISTENCIA' : 'CONFIRM ATTENDANCE';
+                updateChoiceBadge();
+                document.getElementById('rsvp-step-1').classList.add('hidden');
+                document.getElementById('rsvp-step-2').classList.remove('hidden');
             });
-        });
+        }
+
+        if (btnNo) {
+            btnNo.addEventListener('click', function () {
+                selectedAttendance = currentLang === 'es' ? 'NO PODRÉ ASISTIR' : 'REGRETFULLY DECLINE';
+                updateChoiceBadge();
+                document.getElementById('rsvp-step-1').classList.add('hidden');
+                document.getElementById('rsvp-step-2').classList.remove('hidden');
+            });
+        }
+
+        // Return to Step 1 (Modify response choice)
+        function returnToStep1() {
+            document.getElementById('rsvp-step-2').classList.add('hidden');
+            document.getElementById('rsvp-step-1').classList.remove('hidden');
+        }
+
+        const btnBackStep1 = document.getElementById('btn-back-step1');
+        const btnBackStep1Link = document.getElementById('btn-back-step1-link');
+        if (btnBackStep1) btnBackStep1.addEventListener('click', returnToStep1);
+        if (btnBackStep1Link) btnBackStep1Link.addEventListener('click', returnToStep1);
+
+        const submitRsvpBtn = document.getElementById('btn-submit-rsvp');
+        if (submitRsvpBtn) {
+            submitRsvpBtn.addEventListener('click', async function () {
+                const familyInput = document.getElementById('family-name-input');
+                const familyName = familyInput ? familyInput.value.trim() : '';
+
+                if (!familyName) {
+                    alert(currentLang === 'es' ? 'Por favor escribe el nombre de tu familia o invitado' : 'Please enter your family or guest name');
+                    return;
+                }
+
+                submitRsvpBtn.disabled = true;
+                submitRsvpBtn.innerText = currentLang === 'es' ? 'ENVIANDO...' : 'SENDING...';
+
+                // FormSubmit AJAX payload
+                const formData = new FormData();
+                formData.append('to_email', 'isaelinformacion@gmail.com');
+                formData.append('asunto', `Respuesta RSVP Boda Beatriz & Isael - ${familyName}`);
+                formData.append('Confirmacion_Asistencia', selectedAttendance);
+                formData.append('Familia_o_Invitado', familyName);
+                formData.append('Fecha', new Date().toLocaleString());
+
+                // Google Apps Script payload as backup
+                const params = new URLSearchParams();
+                params.append('to_email', 'isaelinformacion@gmail.com');
+                params.append('type', 'RSVP');
+                params.append('celebrant', 'Beatriz & Isael');
+                params.append('attendance', selectedAttendance);
+                params.append('family_name', familyName);
+
+                try {
+                    // Send to FormSubmit endpoint for direct email delivery
+                    await fetch('https://formsubmit.co/ajax/isaelinformacion@gmail.com', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    // Send to Apps Script endpoint as backup
+                    fetch('https://script.google.com/macros/s/AKfycbzQbhOggBiD6VTiKaxwJbX1yRkDtVFRJRklV5X_1cI6Av2znt_nwU1zbDhVECzJEhntCg/exec', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: params
+                    }).catch(e => console.log('Apps script backup call:', e));
+
+                    document.getElementById('rsvp-step-2').classList.add('hidden');
+                    document.getElementById('rsvp-step-3').classList.remove('hidden');
+                    setTimeout(closeModal, 4000);
+                } catch (err) {
+                    console.error('RSVP submit error:', err);
+                    alert(currentLang === 'es' ? 'Ocurrió un error al enviar tu respuesta. Por favor intenta de nuevo.' : 'An error occurred. Please try again.');
+                    submitRsvpBtn.disabled = false;
+                    submitRsvpBtn.innerText = currentLang === 'es' ? 'ENVIAR RESPUESTA' : 'SEND RESPONSE';
+                }
+            });
+        }
 
         // Flip card logic
         document.querySelectorAll('.flip-card').forEach(card => {
