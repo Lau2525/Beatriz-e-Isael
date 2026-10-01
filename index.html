@@ -327,15 +327,15 @@
 
         body::before {
             content: "";
-            position: fixed;
+            position: absolute;
             inset: 0;
-            background-image: url("img/flores.jpeg");
-            background-size: 800px;
-            background-repeat: repeat;
-            opacity: 0.04;
+            background-image: url("img/background_flores_seamless.jpg");
+            background-size: 100% auto;
+            background-repeat: repeat-y;
+            background-position: top center;
+            opacity: 1;
             pointer-events: none;
             z-index: -1;
-            filter: sepia(10%) brightness(1.05) contrast(0.9);
         }
 
         .content-container {
@@ -1003,7 +1003,7 @@
         <span id="lang-label">ES | EN</span>
     </div>
 
-    <main class="w-full max-w-md content-container min-h-screen pb-4 relative overflow-hidden" style="background-color: #f5f4e5;">
+    <main class="w-full max-w-md content-container min-h-screen pb-4 relative overflow-hidden" style="background-color: transparent;">
 
         <!-- Top Header Monogram -->
         <div class="relative w-full text-center pt-8 pb-4 px-6">
